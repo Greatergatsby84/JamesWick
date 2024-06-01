@@ -1,0 +1,93 @@
+[gd_scene load_steps=4 format=3 uid="uid://c5xdtle0ffh6m"]
+
+[ext_resource type="Script" path="res://scenes/intro.gd" id="1_821uf"]
+
+[sub_resource type="Animation" id="Animation_xr02f"]
+resource_name = "scrollText"
+length = 20.0
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_uw3yh"]
+_data = {
+"scrollText": SubResource("Animation_xr02f")
+}
+
+[node name="Intro" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -2.0
+offset_right = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_821uf")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.277528, 0.277528, 0.277528, 1)
+
+[node name="IntroText1" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.5
+anchor_bottom = 0.264
+offset_left = 57.0
+offset_top = 67.0
+offset_right = 56.0
+offset_bottom = 154.336
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "They should have known better. They should have just left us alone, but they didn't
+"
+autowrap_mode = 2
+
+[node name="IntroText2" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.5
+anchor_bottom = 0.264
+offset_left = 57.0
+offset_top = 67.0
+offset_right = 56.0
+offset_bottom = 154.336
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "They took my pet hamster from me. Now they'll pay.
+I've all but wiped out most of them. Now to finish them. "
+autowrap_mode = 2
+
+[node name="IntroText3" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.5
+anchor_bottom = 0.264
+offset_left = 57.0
+offset_top = 67.0
+offset_right = 56.0
+offset_bottom = 154.336
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "
+They know I'm coming. They've run back to their base. Hiding. Preparing. Ready to make their last stand against me. They'll curse the day they pulled aggro on..."
+autowrap_mode = 2
+
+[node name="IntroText4" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.5
+anchor_bottom = 0.264
+offset_left = 57.0
+offset_top = 67.0
+offset_right = 56.0
+offset_bottom = 154.336
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "James Wick"
+autowrap_mode = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_uw3yh")
+}
+autoplay = "scrollText"

@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://cx65ahg4s1qgp"]
+
+[ext_resource type="Texture2D" uid="uid://ctft73hj641h3" path="res://art/Bullets.png" id="1_chpvv"]
+[ext_resource type="Script" path="res://scenes/bullet.gd" id="1_ew4s5"]
+[ext_resource type="Texture2D" path="res://art/light.png" id="3_18f0w"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xya26"]
+radius = 2.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_w2tx5"]
+radius = 3.0
+
+[node name="Bullet" type="CharacterBody2D"]
+collision_layer = 8
+collision_mask = 18
+script = ExtResource("1_ew4s5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_xya26")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_chpvv")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+autostart = true
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_mask = 18
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_w2tx5")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+color = Color(0.94902, 0.92549, 0.545098, 1)
+texture = ExtResource("3_18f0w")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

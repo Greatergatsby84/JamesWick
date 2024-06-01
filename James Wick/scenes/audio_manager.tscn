@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://14exn4lgao5l"]
+
+[ext_resource type="Script" path="res://AudioManager.gd" id="1_p7oly"]
+[ext_resource type="AudioStream" uid="uid://dkguj71ttagyq" path="res://audio/chipnese.ogg" id="2_l22yl"]
+
+[node name="AudioManager" type="Node2D"]
+script = ExtResource("1_p7oly")
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_l22yl")
+autoplay = true

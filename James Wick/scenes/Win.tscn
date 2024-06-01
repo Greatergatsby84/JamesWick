@@ -1,0 +1,185 @@
+[gd_scene load_steps=22 format=3 uid="uid://gotar47q8v3w"]
+
+[ext_resource type="Script" path="res://scenes/Win.gd" id="1_esjnp"]
+[ext_resource type="PackedScene" uid="uid://1nkjpdy3l8ar" path="res://scenes/elevator_transition.tscn" id="2_ukbau"]
+[ext_resource type="Texture2D" uid="uid://bcwm641hil2dw" path="res://art/placeholderwick.png" id="3_0cnha"]
+[ext_resource type="Texture2D" uid="uid://vkinr3qgbvxd" path="res://art/Hamster.png" id="4_8oc4b"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3jmnf"]
+atlas = ExtResource("3_0cnha")
+region = Rect2(0, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_361pg"]
+atlas = ExtResource("3_0cnha")
+region = Rect2(32, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wx41w"]
+atlas = ExtResource("3_0cnha")
+region = Rect2(64, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7sg60"]
+atlas = ExtResource("3_0cnha")
+region = Rect2(96, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wke5g"]
+atlas = ExtResource("3_0cnha")
+region = Rect2(128, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h8see"]
+atlas = ExtResource("3_0cnha")
+region = Rect2(160, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tnnpk"]
+atlas = ExtResource("3_0cnha")
+region = Rect2(192, 96, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ccw28"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3jmnf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_361pg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wx41w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7sg60")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wke5g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h8see")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tnnpk")
+}],
+"loop": true,
+"name": &"default",
+"speed": 9.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7tf4h"]
+atlas = ExtResource("4_8oc4b")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m4d32"]
+atlas = ExtResource("4_8oc4b")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w7hmp"]
+atlas = ExtResource("4_8oc4b")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t5axr"]
+atlas = ExtResource("4_8oc4b")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ef1gs"]
+atlas = ExtResource("4_8oc4b")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ryghi"]
+atlas = ExtResource("4_8oc4b")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5gkmm"]
+atlas = ExtResource("4_8oc4b")
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_41egi"]
+atlas = ExtResource("4_8oc4b")
+region = Rect2(112, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ltby5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7tf4h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m4d32")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w7hmp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t5axr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ef1gs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ryghi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5gkmm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_41egi")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_esjnp")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -26.0
+offset_top = -17.5
+offset_right = 26.0
+offset_bottom = 17.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 25
+text = "WIN"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Button" type="Button" parent="CanvasLayer"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -29.0
+offset_top = -69.0
+offset_right = 30.0
+offset_bottom = -38.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "PLAY AGAIN"
+
+[node name="ElevatorTransition" parent="CanvasLayer" instance=ExtResource("2_ukbau")]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CanvasLayer"]
+position = Vector2(175, 117)
+sprite_frames = SubResource("SpriteFrames_ccw28")
+autoplay = "default"
+frame_progress = 0.239026
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="CanvasLayer"]
+position = Vector2(184, 125)
+sprite_frames = SubResource("SpriteFrames_ltby5")
+autoplay = "default"
+frame_progress = 0.614133
+
+[connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_button_pressed"]

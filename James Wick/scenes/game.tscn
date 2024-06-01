@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://cxiufut58esbc"]
+
+[ext_resource type="PackedScene" uid="uid://dtcqynfrlra0j" path="res://scenes/leveltemplate.tscn" id="1_fjocu"]
+[ext_resource type="PackedScene" uid="uid://d8dyhwt8qhlb" path="res://scenes/player.tscn" id="1_w84py"]
+
+[node name="Game" type="Node2D"]
+y_sort_enabled = true
+
+[node name="Level" parent="." instance=ExtResource("1_fjocu")]
+
+[node name="Player" parent="." instance=ExtResource("1_w84py")]
+position = Vector2(107, 80)
+motion_mode = 1

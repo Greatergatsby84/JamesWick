@@ -1,0 +1,173 @@
+[gd_scene load_steps=6 format=3 uid="uid://c5xdtle0ffh6m"]
+
+[ext_resource type="Script" path="res://scenes/intro.gd" id="1_821uf"]
+[ext_resource type="PackedScene" uid="uid://1nkjpdy3l8ar" path="res://scenes/elevator_transition.tscn" id="2_br550"]
+
+[sub_resource type="Animation" id="Animation_ucwsk"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Control:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 140)]
+}
+
+[sub_resource type="Animation" id="Animation_kb67q"]
+resource_name = "scroll"
+length = 25.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Control:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 140), Vector2(0, -964)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_n61w3"]
+_data = {
+"RESET": SubResource("Animation_ucwsk"),
+"scroll": SubResource("Animation_kb67q")
+}
+
+[node name="Base" type="Node2D"]
+
+[node name="Intro" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -2.0
+offset_right = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_821uf")
+
+[node name="ColorRect" type="ColorRect" parent="Intro"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Intro"]
+libraries = {
+"": SubResource("AnimationLibrary_n61w3")
+}
+autoplay = "scroll"
+
+[node name="Label" type="Label" parent="Intro"]
+layout_mode = 0
+offset_left = 196.0
+offset_top = 23.0
+offset_right = 347.0
+offset_bottom = 46.0
+scale = Vector2(0.39553, 0.39553)
+text = "Press 'Enter' to skip"
+
+[node name="ElevatorTransition" parent="Intro" instance=ExtResource("2_br550")]
+visible = false
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Intro"]
+
+[node name="Control" type="Control" parent="Intro/CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_top = 140.0
+offset_right = 414.0
+offset_bottom = 180.0
+
+[node name="IntroText1" type="Label" parent="Intro/CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0507246
+anchor_top = 1.425
+anchor_right = 0.714275
+anchor_bottom = 10.089
+offset_right = -58.71
+offset_bottom = 0.440002
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 12
+text = "They should have known better. They should have just left us alone... 
+"
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="IntroText2" type="Label" parent="Intro/CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.057971
+anchor_top = 5.625
+anchor_right = 0.68599
+anchor_bottom = 19.464
+offset_right = -48.0
+offset_bottom = 0.439941
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 12
+text = "They took my pet hamster. 
+Now they must pay.
+
+I'll take down every last one of them"
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="IntroText3" type="Label" parent="Intro/CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0676328
+anchor_top = 9.875
+anchor_right = 0.683575
+anchor_bottom = 29.564
+offset_right = -44.0
+offset_bottom = 0.439941
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 12
+text = "They know I'm coming. They've run back to their base. 
+
+Hiding... 
+
+Preparing... 
+
+Ready to make their last stand against me. "
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="IntroText4" type="Label" parent="Intro/CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.120773
+anchor_top = 26.7
+anchor_right = 0.623188
+anchor_bottom = 29.1475
+offset_left = -26.0
+offset_top = 4.0
+offset_right = -26.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 12
+text = "James Wick"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[connection signal="animation_finished" from="Intro/AnimationPlayer" to="Intro" method="_on_animation_player_animation_finished"]
